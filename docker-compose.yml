@@ -5,6 +5,15 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    # hier können wir eigene Umgebungsvariablen bestimmen,
+    # entweder im Format
+    # environment:
+    #   MY_VAR: value
+    # oder im Format
+    # environment:
+    #   - MY_VAR=value
+    environment:
+      APP_STAGE: testing
     expose:
       - "5000"
 
