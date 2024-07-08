@@ -1,0 +1,19 @@
+---
+services:
+  app:
+    container_name: flask-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+
+  nginx:
+    image: nginx:1.27.0@sha256:67682bda769fae1ccf5183192b8daf37b64cae99c6c3302650f6f8bf5f0f95df
+    container_name: nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:ro
+    depends_on:
+      - app
+    ports:
+      - "80:80"
