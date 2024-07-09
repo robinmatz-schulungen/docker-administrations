@@ -1,2 +1,4 @@
 .venv
+docker_logs
+logs
 **/__pycache__/**
